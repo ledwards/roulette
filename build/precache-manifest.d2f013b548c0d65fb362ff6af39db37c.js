@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e3447021a85026d104b637399e54090",
+    "revision": "ab8dd629ef725671b37d9702549ac293",
     "url": "DARK_STATIC_ASSETS_BASE_URL/index.html"
   },
   {
