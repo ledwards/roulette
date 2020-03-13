@@ -38,12 +38,14 @@
           height: '95%'
         }
       });
+
+      callFrame.on('left-meeting', (evt) => { 
+        console.log(evt);
+        window.location.replace('/rooms/create');
+      });
+
       callFrame.join({ url: "https://roulette.daily.co/" + roomName });
     }
-
-    callFrame.on('left-meeting', (evt) => { 
-               window.location.replace('/');
-            });
 
     window.addEventListener('load', (event) => {
       fetch('/match.json')
