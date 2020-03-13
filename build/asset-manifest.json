@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "DARK_STATIC_ASSETS_BASE_URL/static/css/main.d1b05096.chunk.css",
-    "main.js": "DARK_STATIC_ASSETS_BASE_URL/static/js/main.eda2b3ed.chunk.js",
-    "main.js.map": "DARK_STATIC_ASSETS_BASE_URL/static/js/main.eda2b3ed.chunk.js.map",
+    "main.css": "DARK_STATIC_ASSETS_BASE_URL/static/css/main.9cd38f50.chunk.css",
+    "main.js": "DARK_STATIC_ASSETS_BASE_URL/static/js/main.714b9031.chunk.js",
+    "main.js.map": "DARK_STATIC_ASSETS_BASE_URL/static/js/main.714b9031.chunk.js.map",
     "runtime-main.js": "DARK_STATIC_ASSETS_BASE_URL/static/js/runtime-main.e159580b.js",
     "runtime-main.js.map": "DARK_STATIC_ASSETS_BASE_URL/static/js/runtime-main.e159580b.js.map",
-    "static/js/2.30308810.chunk.js": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.30308810.chunk.js",
-    "static/js/2.30308810.chunk.js.map": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.30308810.chunk.js.map",
+    "static/js/2.915bd293.chunk.js": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.915bd293.chunk.js",
+    "static/js/2.915bd293.chunk.js.map": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.915bd293.chunk.js.map",
     "index.html": "DARK_STATIC_ASSETS_BASE_URL/index.html",
-    "precache-manifest.83ce403942ffc634e7ac60c45c120dbd.js": "DARK_STATIC_ASSETS_BASE_URL/precache-manifest.83ce403942ffc634e7ac60c45c120dbd.js",
+    "precache-manifest.c7953a3fa57403d181cc8624d6e3023f.js": "DARK_STATIC_ASSETS_BASE_URL/precache-manifest.c7953a3fa57403d181cc8624d6e3023f.js",
     "service-worker.js": "DARK_STATIC_ASSETS_BASE_URL/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "DARK_STATIC_ASSETS_BASE_URL/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.30308810.chunk.js.LICENSE.txt": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.30308810.chunk.js.LICENSE.txt",
+    "static/css/main.9cd38f50.chunk.css.map": "DARK_STATIC_ASSETS_BASE_URL/static/css/main.9cd38f50.chunk.css.map",
+    "static/js/2.915bd293.chunk.js.LICENSE.txt": "DARK_STATIC_ASSETS_BASE_URL/static/js/2.915bd293.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "DARK_STATIC_ASSETS_BASE_URL/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.e159580b.js",
-    "static/js/2.30308810.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.eda2b3ed.chunk.js"
+    "static/js/2.915bd293.chunk.js",
+    "static/css/main.9cd38f50.chunk.css",
+    "static/js/main.714b9031.chunk.js"
   ]
 }

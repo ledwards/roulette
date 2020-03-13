@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+#footer {
+  background-color: rgba(0,0,0,.97);
+  height: 5%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,.6);
+  font-family: 'Source Code Pro';
+}
+
+#footer a {
+  color: rgba(255,255,255,1);
+}
