@@ -76,6 +76,11 @@
           onExit();
         });
 
+        callFrame.on('participant-left', (evt) => {
+          console.log('Other participant left. Rematching.');
+          callFrame.leave();
+        });
+
         setupTimer(room.created_at);
       }
 
