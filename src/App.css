@@ -37,6 +37,21 @@
   }
 }
 
+#header {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 97%;
+  text-align: right;
+  color: rgba(255,255,255,.6);
+  font-family: 'Source Code Pro';
+}
+
+#timer {
+  background-color: rgba(0,0,0,.50);
+  padding: 5px;
+}
+
 #footer {
   background-color: rgba(0,0,0,.97);
   height: 5%;
@@ -46,6 +61,7 @@
   text-align: center;
   color: rgba(255,255,255,.6);
   font-family: 'Source Code Pro';
+  line-height: 24px;
 }
 
 #footer a {

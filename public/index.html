@@ -27,37 +27,80 @@
 
     <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
     <script>
-    function createFrameAndJoinRoom(roomName) {
-      window.callFrame = window.DailyIframe.createFrame({
-        showLeaveButton: true,
-        iframeStyle: {
-          position: 'fixed',
-          top: '0px',
-          left: 0,
-          width: '100%',
-          height: '95%'
-        }
+      function setupTimer(date) {
+        let timerElt = document.getElementById("ticks");
+          
+        window.timerId = setInterval(() => {
+          const now = Date.now();
+          const then = Date.parse(date);
+          const secondsLeft = Math.max(0, MAX_TIME - Math.floor((now - then) / 1000));
+          const minutes = Math.floor(secondsLeft / 60);
+          const seconds = secondsLeft - minutes * 60;
+          const minutesText = String(minutes).padStart(2, '0');
+          const secondsText = String(seconds).padStart(2, '0');
+          timerElt.innerText = minutesText + ":" + secondsText;
+        }, 1000);
+      };
+
+      function onExit() {
+        window.clearInterval(window.timerId);
+        document.getElementById("ticks").innerText = "00:00";
+
+        fetch('https://chat.lee.af/match', {
+          method: 'post',
+          body: JSON.stringify({ rematch: true})
+        })
+        .then(data => { return data.json() })
+        .then(room => {
+          console.log("rematching to " + room.name);
+          callFrame.join({ url: "https://roulette.daily.co/" + room.name });
+          setupTimer(room.created_at);
+        });
+      };
+
+      function createFrameAndJoinRoom(room) {
+        window.callFrame = window.DailyIframe.createFrame({
+          showLeaveButton: false,
+          iframeStyle: {
+            position: 'fixed',
+            top: '0px',
+            left: 0,
+            width: '100%',
+            height: '95%'
+          }
+        });
+
+        callFrame.join({ url: "https://roulette.daily.co/" + room.name });
+
+        callFrame.on('left-meeting', (evt) => {
+          onExit();
+        });
+
+        setupTimer(room.created_at);
+      }
+
+      const MAX_TIME = 600; // Also set server-side
+
+      window.addEventListener('load', (event) => {
+        fetch('https://chat.lee.af/match', {
+            method: 'post',
+            body: JSON.stringify({})
+        })
+        .then(data => { return data.json() })
+        .then(room => {
+          const roomCreatedAt = Date.parse(room.created_at);
+          console.log('joining: ' + room.name);
+          console.log('createdAt: ' + roomCreatedAt);
+
+          if ((Date.now() - roomCreatedAt) / 1000 > MAX_TIME) {
+            console.log("Stale room: " + room.name);
+            console.log("Requeuing...");
+            window.callFrame.leave();
+          }
+
+          createFrameAndJoinRoom(room);
+        });
       });
-
-      callFrame.on('left-meeting', (evt) => { 
-        window.location.replace('/?rematch=' + (window.rematchCount + 1));
-      });
-
-      callFrame.join({ url: "https://roulette.daily.co/" + roomName });
-    }
-
-    window.addEventListener('load', (event) => {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      window.rematchCount = parseInt(urlParams.get('rematch') || "0");
-
-      fetch('https://chat.lee.af/match' + queryString)
-      .then(data => { return data.json() })
-      .then(res => {
-        console.log('join: ' + res)
-        createFrameAndJoinRoom(res)
-      })
-    });
     </script>
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abel:400|Source+Code+Pro:400,500,300,700">
@@ -65,6 +108,13 @@
     <title>QVC: Quarantined Video Chat</title>
   </head>
   <body>
+    <div id="header">
+      <h4>
+        <span id="timer">
+          <span id="ticks">00:00</span> left
+        </span>
+      </h4>
+    </div>
     <div id="footer">
       <p>Created by <a href="https://twitter.com/terronk">@terronk</a> with <a href="daily.co">Daily.co</a> streaming video API and <a href="darklang.com">Dark</a> backend.</p>
     </div>
