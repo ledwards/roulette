@@ -97,13 +97,13 @@
           console.log('joining: ' + room.name);
           console.log('createdAt: ' + roomCreatedAt);
 
+          createFrameAndJoinRoom(room);
+
           if ((Date.now() - roomCreatedAt) / 1000 > MAX_TIME) {
             console.log("Stale room: " + room.name);
             console.log("Requeuing...");
             window.callFrame.leave();
           }
-
-          createFrameAndJoinRoom(room);
         });
       });
     </script>
